@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaTech Landing Page</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #400f22;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 0 10%;
+      background: linear-gradient(to right, #0f172a, #1e293b, #0f172a);
+    }
+
+    .hero-content h1 {
+      font-size: 55px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons a {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: #0ea5e9;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+    }
+
+    .btn-secondary:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    
+    .features {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 38px;
+      margin-bottom: 50px;
+      color: #38bdf8;
+    }
+
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: #334155;
+    }
+
+    .card h3 {
+      margin: 15px 0;
+      color: #38bdf8;
+    }
+
+    /* Statistics */
+    .stats {
+      padding: 80px 10%;
+      background: #111827;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .stat-box {
+      margin: 20px;
+    }
+
+    .stat-box h2 {
+      font-size: 40px;
+      color: #38bdf8;
+    }
+
+    /* Pricing Section */
+    .pricing {
+      padding: 80px 10%;
+      text-align: center;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .price-card {
+      background: #1e293b;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .price-card:hover {
+      transform: scale(1.05);
+    }
+
+    .recommended {
+      border: 2px solid #38bdf8;
+      transform: scale(1.05);
+    }
+
+    .recommended::before {
+      content: "Recommended";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #38bdf8;
+      color: #0f172a;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .price-card h3 {
+      color: #38bdf8;
+      margin-bottom: 15px;
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .price-card ul li {
+      margin: 10px 0;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 80px 10%;
+      background: #111827;
+      text-align: center;
+    }
+
+    .testimonial-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .testimonial {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-8px);
+    }
+
+    .testimonial h4 {
+      margin-top: 15px;
+      color: #38bdf8;
+    }
+
+    /* Footer */
+    footer {
+      background: #020617;
+      text-align: center;
+      padding: 30px;
+    }
+
+    footer .social-links a {
+      color: #38bdf8;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    footer .social-links a:hover {
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-content h1 {
+        font-size: 38px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">NovaTech</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Innovative Tech for Modern Businesses</h1>
+      <p>Boost your productivity with our all-in-one smart platform.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary">Get Started</a>
+        <a href="#" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <h2 class="section-title">Our Features</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <h3>⚡ Fast Performance</h3>
+        <p>Experience lightning-fast speed and smooth functionality.</p>
+      </div>
+
+      <div class="card">
+        <h3>🔒 Secure Data</h3>
+        <p>Your data is protected with advanced security features.</p>
+      </div>
+
+      <div class="card">
+        <h3>☁ Cloud Sync</h3>
+        <p>Access your files anytime and anywhere with cloud support.</p>
+      </div>
+
+      <div class="card">
+        <h3>📊 Analytics</h3>
+        <p>Get detailed insights and reports for better decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="stats">
+    <div class="stat-box">
+      <h2>10K+</h2>
+      <p>Users</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>500+</h2>
+      <p>Companies</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>99%</h2>
+      <p>Uptime</p>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <h2 class="section-title">Pricing Plans</h2>
+    <div class="pricing-cards">
+      <div class="price-card">
+        <h3>Basic</h3>
+        <h2>$9/month</h2>
+        <ul>
+          <li>1 User</li>
+          <li>Basic Support</li>
+          <li>5GB Storage</li>
+        </ul>
+      </div>
+
+      <div class="price-card recommended">
+        <h3>Pro</h3>
+        <h2>$29/month</h2>
+        <ul>
+          <li>10 Users</li>
+          <li>Priority Support</li>
+          <li>50GB Storage</li>
+        </ul>
+      </div>
+
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <h2>$99/month</h2>
+        <ul>
+          <li>Unlimited Users</li>
+          <li>24/7 Support</li>
+          <li>Unlimited Storage</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <h2 class="section-title">What Our Users Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial">
+        <p>"This platform completely changed how our team works."</p>
+        <h4>- Rahul Sharma</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>"Amazing design, fast speed, and excellent support."</p>
+        <h4>- Priya Verma</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>"The best tech solution for growing businesses."</p>
+        <h4>- Aman Singh</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="social-links">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+    </div>
+    <p>Email: support@novatech.com</p>
+    <p>© 2026 NovaTech. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
